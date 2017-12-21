@@ -1,0 +1,5 @@
+﻿if($(Get-Service HabSampleService).Status -ne "Stopped") {
+    Write-Host "{{pkg.name}} stopping..."
+    Stop-Service HabSampleService
+    Write-Host "{{pkg.name}} has stopped"
+}

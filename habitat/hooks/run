@@ -1,0 +1,7 @@
+﻿Copy-Item "{{pkg.svc_config_path}}\windows-service-sample.exe.config" "{{pkg.svc_path}}\bin" -Force
+
+Start-Service HabSampleService
+Write-Host "{{pkg.name}} is running"
+while($(Get-Service HabSampleService).Status -eq "Running") {
+    Start-Sleep -Seconds 1
+}
