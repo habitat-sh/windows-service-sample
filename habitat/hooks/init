@@ -4,5 +4,6 @@ New-Item -Name bin -ItemType Junction -target "{{pkg.path}}/bin" | Out-Null
 
 # Add the Windows Service
 if((Get-Service HabSampleService -ErrorAction SilentlyContinue) -eq $null) {
-    &$env:systemroot\system32\sc.exe create HabSampleService binpath= (Resolve-Path "{{pkg.svc_path}}/bin/{{pkg.name}}.exe").Path
+	$binPath = (Resolve-Path "{{pkg.svc_path}}/bin/{{pkg.name}}.exe").Path
+    &$env:systemroot\system32\sc.exe create HabSampleService binpath= $binPath
 }
