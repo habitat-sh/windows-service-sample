@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.ServiceProcess;
+using System;
 
 namespace HabitatSample
 {
@@ -53,12 +54,9 @@ namespace HabitatSample
             {
                 statusFileDir = ConfigurationManager.AppSettings["statusFileDir"];
             }
-            using (FileStream fs = new FileStream(Path.Combine(statusFileDir, "status.txt"), FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+            using (var tw = new StreamWriter(Path.Combine(statusFileDir, "status.txt"), true))
             {
-                using (StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-                {
-                    sw.WriteLine(message);
-                }
+                tw.WriteLine(DateTime.Now.ToString() + ": " + message);
             }
         }
 
