@@ -1,8 +1,7 @@
 ﻿$pkg_name="windows-service-sample"
 $pkg_origin="mwrock"
-$pkg_version="0.1.0"
-$pkg_source="nosuchfile.tar.gz"
-$pkg_maintainer="Matt Wrock"
+$pkg_version="0.2.0"
+$pkg_maintainer="Matt Wrock, Murali Valluri"
 $pkg_license=@('MIT')
 $pkg_description="A sample .NET Windows Service"
 $pkg_bin_dirs=@("bin")
